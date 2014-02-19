@@ -80,17 +80,17 @@ public class ArticleDAO extends AbstractDAO<Article>{
                 Article A =new Article();
                 A.setTitle_A(resultat.getString(1));
                 A.setContenu_A(resultat.getString(2));
-                A.setDate_A(resultat.getString(3));
-                A.setImage_A(resultat.getString(4));
-                
-            }
-            return listeArticle;
-}
-            catch (SQLException ex) {
-           //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println("erreur lors du chargement des depots "+ex.getMessage());
-            return null;
-        }
+//                A.setDate_A(resultat.getString(3));
+//                A.setImage_A(resultat.getString(4));
+//                
+//            }
+//            return listeArticle;
+//}
+//            catch (SQLException ex) {
+//           //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
+//            System.out.println("erreur lors du chargement des depots "+ex.getMessage());
+//            return null;
+//        }
     }
 
 }
