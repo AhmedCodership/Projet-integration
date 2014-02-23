@@ -7,14 +7,11 @@ package POCO;
 
 import java.util.Date;
 
-/**
- *
- * @author mahmoud
- */
+
 public class Question {
 public int id_Q;
 public String ques;
-public Date date;
+public Date date_Q;
 public int id_M;
 public String title_Q;
 
@@ -24,13 +21,13 @@ public String title_Q;
     public Question(int id_Q, String ques, Date date, int id_M, String title_Q) {
         this.id_Q = id_Q;
         this.ques = ques;
-        this.date = date;
+        this.date_Q = date;
         this.id_M = id_M;
         this.title_Q = title_Q;
     }
 
     public Date getDate() {
-        return date;
+        return date_Q;
     }
 
     public String getTitle_Q() {
@@ -54,7 +51,7 @@ public String title_Q;
     }
 
     public void setDate(Date date) {
-        this.date = date;
+        this.date_Q = date;
     }
 
     public void setId_M(int id_M) {
@@ -68,6 +65,8 @@ public String title_Q;
     public void setQues(String ques) {
         this.ques = ques;
     }
+    
+
 
     @Override
     public boolean equals(Object obj) {
@@ -89,5 +88,10 @@ public String title_Q;
         int hash = 3;
         return hash;
     }
+
+    public void setDate(String format) {
+       this.date_Q=date_Q;
+    }
+
 
 }

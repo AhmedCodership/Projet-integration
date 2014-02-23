@@ -7,10 +7,7 @@ package POCO;
 
 import java.util.Date;
 
-/**
- *
- * @author mahmoud
- */
+
 public class Article {
 public int id_A;
 public String contenu_A;
@@ -88,6 +85,10 @@ public String title_A;
         this.image_A = image_A;
     }
 
+    public void setDate_A(String string) {
+        this.date_A=date_A;
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (obj == null) {
@@ -113,5 +114,6 @@ public String title_A;
     public String toString() {
         return super.toString();
     }
+
 
 }

@@ -5,10 +5,7 @@
 
 package pidev;
 
-/**
- *
- * @author mahmoud
- */
+
 public class Main {
 
     /**
