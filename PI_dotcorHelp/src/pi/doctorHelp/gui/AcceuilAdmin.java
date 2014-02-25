@@ -4,20 +4,7 @@
  */
 package pi.doctorHelp.gui;
 
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.DefaultListModel;
-import javax.swing.JList;
-import pi.doctorHelp.dao.ArticleDAO;
-import pi.doctorHelp.dao.CategorieDAO;
-import pi.doctorHelp.dao.CommentaireDAO;
-import pi.doctorHelp.entites.Article;
-import pi.doctorHelp.entites.Categorie;
-import pi.doctorHelp.entites.Commentaire;
-import pi.doctorHelp.metier.CategorieMetier;
+
 
 /**
  *
@@ -29,42 +16,9 @@ public class AcceuilAdmin extends javax.swing.JFrame {
      * Creates new form acceuil
      */
     public AcceuilAdmin() {
-initComponents();
-//      uploadListeCategorie(jList1);
-//     uploadListeCategorie(jList2);
-//     
-//     List<Commentaire> comms=new ArrayList<>();
-//        
-//        CommentaireDAO cdao = new CommentaireDAO();
-//        
-//        DefaultListModel DLM = new  DefaultListModel();
-//        try {
-//            comms=cdao.lister();
-//        } catch (SQLException ex) {
-//            Logger.getLogger(AcceuilAdmin.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//        for(Commentaire d:comms)
-//          
-//        DLM.addElement(d.getContenu_Com());
-//         jList4.setModel(DLM);
+
     }
-public void uploadListeCategorie(JList liste){
-//      List<Categorie> cats=new ArrayList<>();
-//        
-//        CategorieDAO cdao = new CategorieDAO();
-//        
-//        DefaultListModel DLM = new  DefaultListModel();
-//        try {
-//            cats=cdao.lister();
-//        } catch (SQLException ex) {
-//            Logger.getLogger(AcceuilAdmin.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//        for(Categorie d:cats)
-//        {  System.out.println(d.getId_Cat());
-//        DLM.addElement(d.getNom());}
-//         liste.setModel(DLM);
-        
-}
+
         
 
     /**
@@ -127,7 +81,7 @@ public void uploadListeCategorie(JList liste){
         jScrollPane9 = new javax.swing.JScrollPane();
         jTextArea4 = new javax.swing.JTextArea();
         jTextField3 = new javax.swing.JTextField();
-        SupprimerQuestion = new javax.swing.JButton();
+        jButton10 = new javax.swing.JButton();
         jPanel8 = new javax.swing.JPanel();
         jScrollPane10 = new javax.swing.JScrollPane();
         jList6 = new javax.swing.JList();
@@ -160,7 +114,7 @@ public void uploadListeCategorie(JList liste){
         jLabel22 = new javax.swing.JLabel();
         jPanel13 = new javax.swing.JPanel();
         jButton15 = new javax.swing.JButton();
-        SupprimerUtilisateur = new javax.swing.JButton();
+        jButton17 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
         jButton16 = new javax.swing.JButton();
 
@@ -520,12 +474,7 @@ public void uploadListeCategorie(JList liste){
 
         jTextField3.setText("jTextField3");
 
-        SupprimerQuestion.setText("Supprimer Question");
-        SupprimerQuestion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SupprimerQuestionActionPerformed(evt);
-            }
-        });
+        jButton10.setText("Supprimer Question");
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
@@ -545,7 +494,7 @@ public void uploadListeCategorie(JList liste){
                 .addContainerGap())
             .addGroup(jPanel9Layout.createSequentialGroup()
                 .addGap(255, 255, 255)
-                .addComponent(SupprimerQuestion)
+                .addComponent(jButton10)
                 .addContainerGap(225, Short.MAX_VALUE))
         );
         jPanel9Layout.setVerticalGroup(
@@ -560,7 +509,7 @@ public void uploadListeCategorie(JList liste){
                     .addComponent(jLabel13)
                     .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
-                .addComponent(SupprimerQuestion))
+                .addComponent(jButton10))
         );
 
         jPanel8.setBorder(javax.swing.BorderFactory.createTitledBorder("Réponses"));
@@ -742,12 +691,7 @@ public void uploadListeCategorie(JList liste){
 
         jButton15.setText("Confirmer");
 
-        SupprimerUtilisateur.setText("Supprimer");
-        SupprimerUtilisateur.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SupprimerUtilisateurActionPerformed(evt);
-            }
-        });
+        jButton17.setText("Supprimer");
 
         javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
         jPanel13.setLayout(jPanel13Layout);
@@ -757,7 +701,7 @@ public void uploadListeCategorie(JList liste){
                 .addGap(53, 53, 53)
                 .addComponent(jButton15, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(82, 82, 82)
-                .addComponent(SupprimerUtilisateur, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButton17, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(34, Short.MAX_VALUE))
         );
         jPanel13Layout.setVerticalGroup(
@@ -766,7 +710,7 @@ public void uploadListeCategorie(JList liste){
                 .addGap(72, 72, 72)
                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton15, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(SupprimerUtilisateur, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton17, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(79, Short.MAX_VALUE))
         );
 
@@ -903,70 +847,18 @@ public void uploadListeCategorie(JList liste){
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-//        String nom= TxtTitre.getText();
-//        String desc=TxtDesc.getText();
-//        Categorie cat =new Categorie();
-//        cat.setNom(nom);
-//        cat.setDescription(desc);
-//        CategorieMetier Mcat = new CategorieMetier();
-//        Mcat.ajouterCategorie(cat);
+       
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
 
-//         List<Article> arts=new ArrayList<>();
-//        
-//        ArticleDAO adao = new ArticleDAO();
-//        
-//        DefaultListModel DLM = new  DefaultListModel();
-//       try {
-//            arts=adao.lister();
-//      } catch (SQLException ex) {
-//          Logger.getLogger(AcceuilAdmin.class.getName()).log(Level.SEVERE, null, ex);
-//       }
-//            
-//        for(Article a:arts)
-//        { System.out.println(a.getId_A());
-//        System.out.println("azerty");}
-      //  DLM.addElement(a.getTitre_A());
-      //   jList3.setModel(DLM);
-        
-//        ArticleDAO adao;
-//        adao = new ArticleDAO();
-//       // jlist.setText(adao.findArticleByid_Cat(jList1.getSelectedValue()).getTitre_A());
-//        // TODO add your handling code here:
-//        
-//         DefaultListModel DLM = new  DefaultListModel();
-//        int size = 0;
-//        try {
-//            size =(adao.findArticleByid_Cat(jList1.getSelectedValue())).size();
-//        } catch (SQLException ex) {
-//            Logger.getLogger(GererCatégorie.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//for(int i = 0;i <=size;i++){
-//           try {
-//              DLM.addElement(adao.findArticleByid_Cat(jList1.getSelectedValue()).get(i).getTitre_A());
-//           } catch (SQLException ex) {
-//               Logger.getLogger(GererCatégorie.class.getName()).log(Level.SEVERE, null, ex);
-//           }
-//          }
-//        jList2.setModel(DLM);
-        
-        // TODO add your handling code here:
+       
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
 
         
     }//GEN-LAST:event_jButton7ActionPerformed
-
-    private void SupprimerUtilisateurActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SupprimerUtilisateurActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_SupprimerUtilisateurActionPerformed
-
-    private void SupprimerQuestionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SupprimerQuestionActionPerformed
-       // TODO add your handling code here:
-    }//GEN-LAST:event_SupprimerQuestionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1003,17 +895,17 @@ public void uploadListeCategorie(JList liste){
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton SupprimerQuestion;
-    private javax.swing.JButton SupprimerUtilisateur;
     private javax.swing.JTextArea TxtDesc;
     private javax.swing.JTextField TxtTitre;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton15;
     private javax.swing.JButton jButton16;
+    private javax.swing.JButton jButton17;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;

@@ -81,7 +81,6 @@ public class ArticleDAO extends AbstractDAO<Article>{
                 A.setImage_A(resultat.getString(5));
                 A.setId_M(resultat.getInt(6));
                 A.setId_Cat(resultat.getInt(7));
-                listeArticle.add(A);
                 
             }
             return listeArticle;

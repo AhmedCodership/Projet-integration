@@ -4,9 +4,6 @@
  */
 package pi.doctorHelp.gui;
 
-import pi.doctorHelp.entites.Reponse;
-import pi.doctorHelp.metier.ReponseMetier;
-
 /**
  *
  * @author HP
@@ -291,8 +288,6 @@ public class AcceuilMembre extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         jTextField14 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        jButton37 = new javax.swing.JButton();
-        jButton38 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -459,7 +454,7 @@ public class AcceuilMembre extends javax.swing.JFrame {
                         .addComponent(jScrollPane22, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jPanel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jPanel20, javax.swing.GroupLayout.PREFERRED_SIZE, 443, Short.MAX_VALUE))
+                    .addComponent(jPanel20, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -1969,11 +1964,6 @@ public class AcceuilMembre extends javax.swing.JFrame {
         jScrollPane25.setViewportView(jTextArea3);
 
         jButton6.setText("Ajouter Reponse");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel18Layout = new javax.swing.GroupLayout(jPanel18);
         jPanel18.setLayout(jPanel18Layout);
@@ -2239,20 +2229,6 @@ public class AcceuilMembre extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Profil", jPanel4);
 
-        jButton37.setText("se deconnecter");
-        jButton37.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton37ActionPerformed(evt);
-            }
-        });
-
-        jButton38.setText("Nous contacter");
-        jButton38.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton38ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -2261,21 +2237,11 @@ public class AcceuilMembre extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jTabbedPane1)
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton38)
-                .addGap(28, 28, 28)
-                .addComponent(jButton37)
-                .addGap(41, 41, 41))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton37)
-                    .addComponent(jButton38))
-                .addGap(92, 92, 92)
+                .addGap(126, 126, 126)
                 .addComponent(jTabbedPane1)
                 .addContainerGap())
         );
@@ -2290,23 +2256,6 @@ public class AcceuilMembre extends javax.swing.JFrame {
     private void jTextField24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField24ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField24ActionPerformed
-
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-Reponse reponse = new Reponse ();
-ReponseMetier reponseM=new ReponseMetier ();
-reponse.setReponse(jTextArea3.getText());
-reponseM.ajouterReponse(reponse);       // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
-
-    private void jButton37ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton37ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton37ActionPerformed
-
-    private void jButton38ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton38ActionPerformed
-        ContacterAdministrateur Contacter=new ContacterAdministrateur();
-        Contacter.setVisible(true);
-        this.setVisible(false); // TODO add your handling code here:
-    }//GEN-LAST:event_jButton38ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -2373,8 +2322,6 @@ reponseM.ajouterReponse(reponse);       // TODO add your handling code here:
     private javax.swing.JButton jButton34;
     private javax.swing.JButton jButton35;
     private javax.swing.JButton jButton36;
-    private javax.swing.JButton jButton37;
-    private javax.swing.JButton jButton38;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
