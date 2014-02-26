@@ -4,7 +4,19 @@
  */
 package pi.doctorHelp.gui;
 
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+import pi.doctorHelp.dao.MembreDAO;
+import pi.doctorHelp.dao.QuestionDAO;
+import pi.doctorHelp.dao.ReponseDAO;
+import pi.doctorHelp.entites.Article;
+import pi.doctorHelp.entites.Membre;
+import pi.doctorHelp.entites.Question;
 import pi.doctorHelp.entites.Reponse;
+import pi.doctorHelp.metier.MembreMetier;
+import pi.doctorHelp.metier.QuestionMetier;
 import pi.doctorHelp.metier.ReponseMetier;
 
 /**
@@ -31,6 +43,11 @@ public class AcceuilMembre extends javax.swing.JFrame {
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
+        But_Rechercher = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        TxtRercherche = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        Table_Recherche = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jPanel5 = new javax.swing.JPanel();
@@ -264,7 +281,7 @@ public class AcceuilMembre extends javax.swing.JFrame {
         jTextArea2 = new javax.swing.JTextArea();
         jScrollPane25 = new javax.swing.JScrollPane();
         jTextArea3 = new javax.swing.JTextArea();
-        jButton6 = new javax.swing.JButton();
+        AjouterReponse = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jPanel16 = new javax.swing.JPanel();
         jLabel21 = new javax.swing.JLabel();
@@ -292,19 +309,78 @@ public class AcceuilMembre extends javax.swing.JFrame {
         jTextField14 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton37 = new javax.swing.JButton();
-        jButton38 = new javax.swing.JButton();
+        ContacterAdmin = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        But_Rechercher.setText("Recherche");
+        But_Rechercher.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                But_RechercherActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("Recherche par");
+
+        Table_Recherche.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
+            },
+            new String [] {
+                "Titre_A", "Contenu_A"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        Table_Recherche.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                Table_RechercheAncestorAdded(evt);
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
+        jScrollPane1.setViewportView(Table_Recherche);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 833, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(83, 83, 83)
+                        .addComponent(jLabel1)
+                        .addGap(40, 40, 40)
+                        .addComponent(TxtRercherche, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(56, 56, 56)
+                        .addComponent(But_Rechercher))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(66, 66, 66)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 586, Short.MAX_VALUE)))
+                .addGap(181, 181, 181))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 508, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(TxtRercherche, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(But_Rechercher))
+                .addGap(36, 36, 36)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 246, Short.MAX_VALUE)
+                .addGap(176, 176, 176))
         );
 
         jTabbedPane1.addTab("Acceuil", jPanel1);
@@ -1885,7 +1961,7 @@ public class AcceuilMembre extends javax.swing.JFrame {
         jLabel18.setText("liste Questions:");
 
         jList23.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            String[] strings = { "ae", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
         });
@@ -1968,10 +2044,10 @@ public class AcceuilMembre extends javax.swing.JFrame {
         jTextArea3.setRows(5);
         jScrollPane25.setViewportView(jTextArea3);
 
-        jButton6.setText("Ajouter Reponse");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        AjouterReponse.setText("Ajouter Reponse");
+        AjouterReponse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                AjouterReponseActionPerformed(evt);
             }
         });
 
@@ -1996,7 +2072,7 @@ public class AcceuilMembre extends javax.swing.JFrame {
                                 .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel18Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton6)))
+                        .addComponent(AjouterReponse)))
                 .addContainerGap())
         );
         jPanel18Layout.setVerticalGroup(
@@ -2013,7 +2089,7 @@ public class AcceuilMembre extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane25, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton6))
+                .addComponent(AjouterReponse, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -2097,6 +2173,11 @@ public class AcceuilMembre extends javax.swing.JFrame {
         jLabel15.setText("Confirmer mot de passe:");
 
         jButton1.setText("Modifier");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel17Layout = new javax.swing.GroupLayout(jPanel17);
         jPanel17.setLayout(jPanel17Layout);
@@ -2105,18 +2186,14 @@ public class AcceuilMembre extends javax.swing.JFrame {
             .addGroup(jPanel17Layout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel17Layout.createSequentialGroup()
-                        .addComponent(jLabel13)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextField12))
-                    .addGroup(jPanel17Layout.createSequentialGroup()
-                        .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel14)
-                            .addComponent(jLabel15))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField13)
-                            .addComponent(jTextField14))))
+                    .addComponent(jLabel14)
+                    .addComponent(jLabel15)
+                    .addComponent(jLabel13))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTextField12)
+                    .addComponent(jTextField13)
+                    .addComponent(jTextField14))
                 .addContainerGap())
             .addGroup(jPanel17Layout.createSequentialGroup()
                 .addGap(78, 78, 78)
@@ -2246,10 +2323,10 @@ public class AcceuilMembre extends javax.swing.JFrame {
             }
         });
 
-        jButton38.setText("Nous contacter");
-        jButton38.addActionListener(new java.awt.event.ActionListener() {
+        ContacterAdmin.setText("Nous contacter");
+        ContacterAdmin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton38ActionPerformed(evt);
+                ContacterAdminActionPerformed(evt);
             }
         });
 
@@ -2263,7 +2340,7 @@ public class AcceuilMembre extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton38)
+                .addComponent(ContacterAdmin)
                 .addGap(28, 28, 28)
                 .addComponent(jButton37)
                 .addGap(41, 41, 41))
@@ -2274,7 +2351,7 @@ public class AcceuilMembre extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton37)
-                    .addComponent(jButton38))
+                    .addComponent(ContacterAdmin))
                 .addGap(92, 92, 92)
                 .addComponent(jTabbedPane1)
                 .addContainerGap())
@@ -2291,22 +2368,77 @@ public class AcceuilMembre extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField24ActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-Reponse reponse = new Reponse ();
-ReponseMetier reponseM=new ReponseMetier ();
-reponse.setReponse(jTextArea3.getText());
-reponseM.ajouterReponse(reponse);       // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
+    private void AjouterReponseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AjouterReponseActionPerformed
+
+    }//GEN-LAST:event_AjouterReponseActionPerformed
 
     private void jButton37ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton37ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton37ActionPerformed
 
-    private void jButton38ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton38ActionPerformed
+    private void ContacterAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContacterAdminActionPerformed
         ContacterAdministrateur Contacter=new ContacterAdministrateur();
         Contacter.setVisible(true);
         this.setVisible(false); // TODO add your handling code here:
-    }//GEN-LAST:event_jButton38ActionPerformed
+    }//GEN-LAST:event_ContacterAdminActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+
+      
+       Membre membre = new Membre ();
+       MembreDAO mbr=new MembreDAO();
+       
+       membre=   mbr.findMembreByid_M(1);
+     if(!jTextField12.getText().equals(membre.getPassword()) ) 
+     { 
+         System.out.println( "Veuillez retapper votre mot de passe !");
+     }
+      else{     
+     String NewPwd= jTextField13.getText();
+     String ReNewPwd = jTextField14.getText();
+     if (NewPwd.equals(ReNewPwd) && !jTextField13.getText().equals("")&&!jTextField14.getText().equals("") )
+     {
+        membre.setPassword(NewPwd);
+        mbr.update(membre);
+        System.out.println( "Mot de passe modifié !");
+     }
+     else
+     {System.out.println( "Mots de passe non identiques !");}}
+    
+    
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void But_RechercherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_But_RechercherActionPerformed
+        // TODO add your handling code here:
+        MembreDAO mDAO = new MembreDAO();
+        String critere= TxtRercherche.getText();
+        
+        List<Article> ListeA = new ArrayList<Article>();
+        ListeA=mDAO.findArticle(critere);
+        DefaultTableModel DTM = new DefaultTableModel();
+        DTM.addColumn("Titre_A");
+        DTM.addColumn("Contenu");
+        try{
+            DTM.setRowCount(0);
+            for (Article a : ListeA)
+            {
+                String titre= a.getTitre_A();
+                String contenu= a.getContenu_A();
+                Object[] obj ={titre,contenu};
+                DTM.addRow(obj);
+               
+            }
+            Table_Recherche.setModel(DTM);
+        }
+        catch(Exception e)
+        {
+            System.out.println("erreur"+e.getMessage());
+        }
+    }//GEN-LAST:event_But_RechercherActionPerformed
+
+    private void Table_RechercheAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_Table_RechercheAncestorAdded
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Table_RechercheAncestorAdded
 
     /**
      * @param args the command line arguments
@@ -2343,6 +2475,11 @@ reponseM.ajouterReponse(reponse);       // TODO add your handling code here:
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton AjouterReponse;
+    private javax.swing.JButton But_Rechercher;
+    private javax.swing.JButton ContacterAdmin;
+    private javax.swing.JTable Table_Recherche;
+    private javax.swing.JTextField TxtRercherche;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
@@ -2374,13 +2511,12 @@ reponseM.ajouterReponse(reponse);       // TODO add your handling code here:
     private javax.swing.JButton jButton35;
     private javax.swing.JButton jButton36;
     private javax.swing.JButton jButton37;
-    private javax.swing.JButton jButton38;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -2497,6 +2633,7 @@ reponseM.ajouterReponse(reponse);       // TODO add your handling code here:
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane19;
     private javax.swing.JScrollPane jScrollPane20;
     private javax.swing.JScrollPane jScrollPane21;
