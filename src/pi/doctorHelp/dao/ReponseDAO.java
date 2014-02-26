@@ -91,4 +91,30 @@ public class ReponseDAO extends AbstractDAO<Reponse> {
         }
     }
     
+    public List<Reponse>chercherReponse(int id) throws SQLException {
+         List<Reponse> r = new ArrayList<Reponse>();
+        String requete = "select * from Reponse where id="+id;
+        try{
+         PreparedStatement ps = MyConnection.getInstance().prepareStatement(requete);
+                DateFormat df = new SimpleDateFormat();
+            ResultSet resultat = ps.executeQuery(requete);
+            while(resultat.next()){
+                Reponse rep =new Reponse();
+                rep.setId_R(resultat.getInt(1));
+                rep.setReponse(resultat.getString(2));
+                rep.setDate(df.format(resultat.getString(3)));
+                rep.setId_Q(resultat.getInt(4));
+                rep.setId_M(resultat.getInt(5));
+                r.add(rep);
+      ;            
+            }
+            return r;
+}
+            catch (SQLException ex) {
+           //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("erreur lors du chargement des Questions "+ex.getMessage());
+            return null;
+        }
+    }
+    
 }

@@ -295,11 +295,11 @@ public class AcceuilMembre extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 833, Short.MAX_VALUE)
+            .addGap(0, 841, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 508, Short.MAX_VALUE)
+            .addGap(0, 516, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Acceuil", jPanel1);
@@ -328,6 +328,11 @@ public class AcceuilMembre extends javax.swing.JFrame {
         jButton7.setText("Parcourir Photo");
 
         jButton8.setText("Ajouter");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel19Layout = new javax.swing.GroupLayout(jPanel19);
         jPanel19.setLayout(jPanel19Layout);
@@ -454,7 +459,7 @@ public class AcceuilMembre extends javax.swing.JFrame {
                         .addComponent(jScrollPane22, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jPanel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jPanel20, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(jPanel20, javax.swing.GroupLayout.PREFERRED_SIZE, 451, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -610,7 +615,7 @@ public class AcceuilMembre extends javax.swing.JFrame {
                         .addComponent(jScrollPane29, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jPanel22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jPanel21, javax.swing.GroupLayout.PREFERRED_SIZE, 443, Short.MAX_VALUE))
+                    .addComponent(jPanel21, javax.swing.GroupLayout.PREFERRED_SIZE, 451, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -766,7 +771,7 @@ public class AcceuilMembre extends javax.swing.JFrame {
                         .addComponent(jScrollPane34, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jPanel24, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jPanel23, javax.swing.GroupLayout.PREFERRED_SIZE, 443, Short.MAX_VALUE))
+                    .addComponent(jPanel23, javax.swing.GroupLayout.PREFERRED_SIZE, 451, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -922,7 +927,7 @@ public class AcceuilMembre extends javax.swing.JFrame {
                         .addComponent(jScrollPane39, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jPanel26, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jPanel25, javax.swing.GroupLayout.PREFERRED_SIZE, 443, Short.MAX_VALUE))
+                    .addComponent(jPanel25, javax.swing.GroupLayout.PREFERRED_SIZE, 451, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -1078,7 +1083,7 @@ public class AcceuilMembre extends javax.swing.JFrame {
                         .addComponent(jScrollPane44, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jPanel28, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jPanel27, javax.swing.GroupLayout.PREFERRED_SIZE, 443, Short.MAX_VALUE))
+                    .addComponent(jPanel27, javax.swing.GroupLayout.PREFERRED_SIZE, 451, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -1234,7 +1239,7 @@ public class AcceuilMembre extends javax.swing.JFrame {
                         .addComponent(jScrollPane49, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jPanel30, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jPanel29, javax.swing.GroupLayout.PREFERRED_SIZE, 443, Short.MAX_VALUE))
+                    .addComponent(jPanel29, javax.swing.GroupLayout.PREFERRED_SIZE, 451, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -1390,7 +1395,7 @@ public class AcceuilMembre extends javax.swing.JFrame {
                         .addComponent(jScrollPane69, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jPanel38, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jPanel37, javax.swing.GroupLayout.PREFERRED_SIZE, 443, Short.MAX_VALUE))
+                    .addComponent(jPanel37, javax.swing.GroupLayout.PREFERRED_SIZE, 451, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -1546,7 +1551,7 @@ public class AcceuilMembre extends javax.swing.JFrame {
                         .addComponent(jScrollPane64, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jPanel36, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jPanel35, javax.swing.GroupLayout.PREFERRED_SIZE, 443, Short.MAX_VALUE))
+                    .addComponent(jPanel35, javax.swing.GroupLayout.PREFERRED_SIZE, 451, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -1702,7 +1707,7 @@ public class AcceuilMembre extends javax.swing.JFrame {
                         .addComponent(jScrollPane59, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jPanel34, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jPanel33, javax.swing.GroupLayout.PREFERRED_SIZE, 443, Short.MAX_VALUE))
+                    .addComponent(jPanel33, javax.swing.GroupLayout.PREFERRED_SIZE, 451, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -1858,7 +1863,7 @@ public class AcceuilMembre extends javax.swing.JFrame {
                         .addComponent(jScrollPane54, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jPanel32, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jPanel31, javax.swing.GroupLayout.PREFERRED_SIZE, 443, Short.MAX_VALUE))
+                    .addComponent(jPanel31, javax.swing.GroupLayout.PREFERRED_SIZE, 451, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -1872,7 +1877,7 @@ public class AcceuilMembre extends javax.swing.JFrame {
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane2)
+            .addComponent(jTabbedPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 516, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Article", jPanel2);
@@ -2111,7 +2116,7 @@ public class AcceuilMembre extends javax.swing.JFrame {
             .addGroup(jPanel17Layout.createSequentialGroup()
                 .addGap(78, 78, 78)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(90, Short.MAX_VALUE))
+                .addContainerGap(98, Short.MAX_VALUE))
         );
         jPanel17Layout.setVerticalGroup(
             jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2207,7 +2212,7 @@ public class AcceuilMembre extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)))
                         .addComponent(jButton4))
                     .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(133, Short.MAX_VALUE))
+                .addContainerGap(137, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -2256,6 +2261,10 @@ public class AcceuilMembre extends javax.swing.JFrame {
     private void jTextField24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField24ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField24ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton8ActionPerformed
 
     /**
      * @param args the command line arguments
