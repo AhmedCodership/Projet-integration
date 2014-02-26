@@ -14,10 +14,16 @@ import javax.swing.JList;
 import pi.doctorHelp.dao.ArticleDAO;
 import pi.doctorHelp.dao.CategorieDAO;
 import pi.doctorHelp.dao.CommentaireDAO;
+import pi.doctorHelp.dao.MembreDAO;
+import pi.doctorHelp.dao.QuestionDAO;
 import pi.doctorHelp.entites.Article;
 import pi.doctorHelp.entites.Categorie;
 import pi.doctorHelp.entites.Commentaire;
+import pi.doctorHelp.entites.Membre;
+import pi.doctorHelp.entites.Question;
 import pi.doctorHelp.metier.CategorieMetier;
+import pi.doctorHelp.metier.MembreMetier;
+import pi.doctorHelp.metier.QuestionMetier;
 
 /**
  *
@@ -161,7 +167,6 @@ public void uploadListeCategorie(JList liste){
         jPanel13 = new javax.swing.JPanel();
         jButton15 = new javax.swing.JButton();
         SupprimerUtilisateur = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
         jButton16 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -498,7 +503,7 @@ public void uploadListeCategorie(JList liste){
         jTabbedPane1.addTab("Gérer Article", jPanel2);
 
         jList5.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            String[] strings = { "Item 1", "ae", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
         });
@@ -655,7 +660,7 @@ public void uploadListeCategorie(JList liste){
         jScrollPane11.setViewportView(jList7);
 
         jList8.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            String[] strings = { "mimi", "sisi", "jiji", "lala", "Item 5" };
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
         });
@@ -741,6 +746,11 @@ public void uploadListeCategorie(JList liste){
         jPanel13.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
         jButton15.setText("Confirmer");
+        jButton15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton15ActionPerformed(evt);
+            }
+        });
 
         SupprimerUtilisateur.setText("Supprimer");
         SupprimerUtilisateur.addActionListener(new java.awt.event.ActionListener() {
@@ -852,7 +862,7 @@ public void uploadListeCategorie(JList liste){
             .addGroup(jPanel10Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
                 .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(33, 33, 33))
         );
@@ -868,9 +878,7 @@ public void uploadListeCategorie(JList liste){
 
         jTabbedPane1.addTab("Gérer utilisateur", jPanel10);
 
-        jButton8.setText("Contacter Admin");
-
-        jButton16.setText("Se Deconnecter");
+        jButton16.setText("Se deconnecter");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -883,17 +891,13 @@ public void uploadListeCategorie(JList liste){
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton16)
-                .addGap(72, 72, 72)
-                .addComponent(jButton8)
-                .addGap(29, 29, 29))
+                .addGap(51, 51, 51))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton8)
-                    .addComponent(jButton16))
+                .addComponent(jButton16)
                 .addGap(36, 36, 36)
                 .addComponent(jTabbedPane1)
                 .addContainerGap())
@@ -962,11 +966,34 @@ public void uploadListeCategorie(JList liste){
 
     private void SupprimerUtilisateurActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SupprimerUtilisateurActionPerformed
         // TODO add your handling code here:
+        String MembreSelectionne =(String) jList8.getSelectedValue(); 
+        Membre membre = new Membre ();
+        MembreDAO mbr=new MembreDAO ();
+        membre=mbr.findMembreBynom(MembreSelectionne);
+        System.out.println(membre.getNom());
+        mbr.delete(membre);
+       
+       
+       
+        
     }//GEN-LAST:event_SupprimerUtilisateurActionPerformed
 
     private void SupprimerQuestionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SupprimerQuestionActionPerformed
        // TODO add your handling code here:
+        String QuestionSelectionne =(String) jList5.getSelectedValue(); 
+        Question question = new Question();
+        QuestionDAO ques = new QuestionDAO();
+        question=ques.findQuestionBytitre_Q(QuestionSelectionne);
+        System.out.println(question.getTitle_Q());
+        ques.delete(question);
+       
+       
+        
     }//GEN-LAST:event_SupprimerQuestionActionPerformed
+
+    private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton15ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1020,7 +1047,6 @@ public void uploadListeCategorie(JList liste){
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
