@@ -87,4 +87,30 @@ public class QuestionDAO extends AbstractDAO<Question>{
         }
     }
     
+    public List<Question> lister() throws SQLException {
+         List<Question> listeArticle = new ArrayList<Question>();
+        String requete = "select * from Questions";
+        DateFormat df = new SimpleDateFormat();
+        try{
+         PreparedStatement ps = MyConnection.getInstance().prepareStatement(requete);
+                 
+            ResultSet resultat = ps.executeQuery(requete);
+            while(resultat.next()){
+                Question Q =new Question();
+                Q.setId_Q(resultat.getInt(1));
+                Q.setTitle_Q(resultat.getString(2));
+                Q.setQues(resultat.getString(3));
+                Q.setDate(df.format(resultat.getString(4)));
+               
+                
+            }
+            return listeArticle;
+}
+            catch (SQLException ex) {
+           //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("erreur lors du chargement des Questions "+ex.getMessage());
+            return null;
+        }
+    }
+    
 }
